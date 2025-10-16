@@ -10,8 +10,15 @@ function exibirTextoNaTela(tag, texto) {
 }
 
 function exibirMensagemInicial() {
-    exibirTextoNaTela('h1', 'Jogo do número secreto');
-    exibirTextoNaTela('p', 'Escolha um número entre 1 e 10');
+    // Apresentação da Erica (apenas áudio, sem exibir na tela)
+    responsiveVoice.speak('Olá! Me chamo Erica.', 'Brazilian Portuguese Female', {
+        rate: 1.2,
+        onend: function() {
+            // Após a apresentação, exibe e fala as mensagens do jogo
+            exibirTextoNaTela('h1', 'Jogo do número secreto');
+            exibirTextoNaTela('p', 'Escolha um número entre 1 e 10');
+        }
+    });
 }
 
 exibirMensagemInicial();
